@@ -4,7 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Buku extends Model
+class Kemampuan extends Model
 {
     /**
      * The table associated with the model.

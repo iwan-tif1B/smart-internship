@@ -36,7 +36,7 @@
     <div class="d-flex justify-content-center align-items-center vh-100">
         <div class="login-modal text-center p-4 shadow bg-white rounded position-relative">
             <!-- Logo -->
-            <img src="{{ asset('img/logo.png') }}" alt="Smart Internship" class="mb-2 img-fluid logo">
+            <img src="{{ asset('img/logo_red.png') }}" alt="Smart Internship" class="mb-2 img-fluid logo">
 
             <!-- Judul -->
             <h4 class="fw-bold mb-4 text-start text-black">Masuk</h4>

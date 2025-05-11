@@ -1,6 +1,6 @@
 @extends('layouts.auth')
 
-@section('title', 'Masuk')
+@section('title', 'Daftar')
 
 @push('style')
     <!-- Bootstrap & Icons -->
@@ -11,7 +11,7 @@
             background-color: #f5f7fa;
         }
 
-        .login-modal {
+        .register-modal {
             width: 100%;
             max-width: 400px;
         }
@@ -19,75 +19,58 @@
         .logo {
             max-width: 120px;
             margin-bottom: 20px;
-            /* Menambahkan jarak antara logo dan konten di bawahnya */
-        }
-
-        .toggle-password {
-            position: absolute;
-            right: 15px;
-            top: 37px;
-            cursor: pointer;
-            color: #6c757d;
         }
     </style>
 @endpush
 
 @section('main')
     <div class="d-flex justify-content-center align-items-center vh-100">
-        <div class="login-modal text-center p-4 shadow bg-white rounded position-relative">
+        <div class="register-modal text-center p-4 shadow bg-white rounded">
             <!-- Logo -->
-            <img src="{{ asset('img/logo.png') }}" alt="Smart Internship" class="mb-2 img-fluid logo">
+            <img src="{{ asset('img/logo_red.png') }}" alt="Smart Internship" class="mb-2 img-fluid logo">
 
             <!-- Judul -->
-            <h4 class="fw-bold mb-4 text-start text-black">Masuk</h4>
+            <h4 class="fw-bold mb-4 text-start text-black">Daftar</h4>
 
-            <!-- Form Login -->
-            <form method="POST" action="{{ route('login') }}">
+            <!-- Form Register -->
+            <form method="POST" action="#">
                 @csrf
+                <!-- Nama -->
+                <div class="mb-3 text-start">
+                    <label for="name" class="form-label">Nama</label>
+                    <input type="text" id="name" name="name" class="form-control" placeholder="Masukkan nama lengkap" required>
+                </div>
+
                 <!-- Email -->
                 <div class="mb-3 text-start">
                     <label for="email" class="form-label">Email</label>
-                    <input id="email" type="email" name="email" value="{{ old('email') }}" class="form-control"
-                        placeholder="Masukkan email aktif" required>
+                    <input type="email" id="email" name="email" class="form-control" placeholder="Masukkan email aktif" required>
                 </div>
 
                 <!-- Password -->
-                <div class="mb-3 text-start position-relative">
+                <div class="mb-3 text-start">
                     <label for="password" class="form-label">Kata Sandi</label>
-                    <input type="password" name="password" id="password" class="form-control"
-                        placeholder="Masukkan kata sandi" required>
-                    <i class="bi bi-eye toggle-password" onclick="togglePassword()"></i>
+                    <input type="password" id="password" name="password" class="form-control" placeholder="Masukkan kata sandi" required>
                 </div>
 
-                <!-- Lupa Password -->
-                <div class="mb-3 text-end">
-                    <a href="#" class="text-decoration-none">Lupa Kata Sandi</a>
+                <!-- Konfirmasi Password -->
+                <div class="mb-3 text-start">
+                    <label for="password_confirmation" class="form-label">Konfirmasi Kata Sandi</label>
+                    <input type="password" id="password_confirmation" name="password_confirmation" class="form-control" placeholder="Ulangi kata sandi" required>
                 </div>
 
                 <!-- Tombol -->
-                <div class="d-flex justify-content-between">
-                    <a href="register" class="btn btn-outline-dark w-50 me-2">Daftar</a>
-                    <button type="submit" class="btn btn-danger w-50 ms-2">Masuk</button>
+                <div class="d-grid mb-3">
+                    <button type="submit" class="btn btn-danger w-100">Daftar</button>
                 </div>
+
+                <!-- Sudah punya akun -->
+                <p class="text-center mt-3">
+    Sudah memiliki akun?
+    <a href="{{ url('/') }}" class="text-danger fw-bold text-decoration-none">Masuk</a>
+</p>
+
             </form>
         </div>
     </div>
 @endsection
-
-@push('scripts')
-    <script>
-        function togglePassword() {
-            const passwordField = document.getElementById("password");
-            const icon = document.querySelector(".toggle-password");
-            if (passwordField.type === "password") {
-                passwordField.type = "text";
-                icon.classList.remove("bi-eye");
-                icon.classList.add("bi-eye-slash");
-            } else {
-                passwordField.type = "password";
-                icon.classList.remove("bi-eye-slash");
-                icon.classList.add("bi-eye");
-            }
-        }
-    </script>
-@endpush
