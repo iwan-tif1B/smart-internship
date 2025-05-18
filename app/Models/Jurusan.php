@@ -20,7 +20,7 @@ extends Model
      * @var array
      */
     protected $fillable = [
-        'name',
+        'nama',
     ];
 }
 

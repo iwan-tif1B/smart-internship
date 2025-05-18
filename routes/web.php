@@ -6,23 +6,29 @@ use App\Http\Controllers\KemampuanController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\PaymentController;
 use App\Http\Controllers\DatalistController;
+use App\Http\Controllers\InstansiController;
 use App\Http\Controllers\KategoriController;
 use App\Http\Controllers\MasterpsController;
 use App\Http\Controllers\PeminjamanController;
 use App\Http\Controllers\WawancaraController;
 use App\Http\Controllers\PosisiController;
 use App\Http\Controllers\JurusanController;
-use App\Http\Controllers\InstansiController;
-use App\Http\Controllers\SertifikatController;
-use App\Http\Controllers\TemplatePenilaianController;
 use App\Http\Controllers\KelolaMentorController;
 use App\Http\Controllers\TestimoniController;
 use App\Http\Controllers\KriteriaController;
-use App\Http\Controllers\PenilaianController;
 use App\Http\Controllers\RegisterController;
+use App\Http\Controllers\TemplateSertifikatController;
+use App\Http\Controllers\BerhasilDaftarController;
+use App\Http\Controllers\KegiatankuController;
+use App\Http\Controllers\NotifikasiController;
+use App\Http\Controllers\ProfileUserController;
+use App\Http\Controllers\PosisiUserController;
 
 
 
+Route::get('/user', function () {
+    return view('pages.user.berhasidaftar.index');
+})->name('user.home');
 
 Route::post('/create_new_account/store', [RegisterController::class, 'store'])->name('create_new_account.store');
 // Authentication Routes
@@ -55,12 +61,16 @@ Route::middleware(['auth'])->group(function () {
     Route::resource('masterps', MasterpsController::class);
     Route::resource('datalist', DatalistController::class);
     Route::resource('pinjam', PeminjamanController::class);
-    Route::resource('sertifikat', SertifikatController::class);
-    Route::resource('templatepenilaian', TemplatePenilaianController::class);
     Route::resource('kelolamentor', KelolaMentorController::class);
     Route::resource('kriteria', KriteriaController::class);
     Route::resource('testimoni', TestimoniController::class);
-    Route::resource('penilaian', PenilaianController::class);
+    Route::resource('templatesertifikat', TemplateSertifikatController::class);
+    Route::resource('berhasildaftar', BerhasilDaftarController::class);
+    Route::resource('kegiatanku', KegiatankuController::class);
+    Route::resource('notifikasi', NotifikasiController::class);
+    Route::resource('profileuser', ProfileUserController::class);
+    Route::resource('posisiuser', PosisiUserController::class);
+
 
     // Mitra Blacklist/Unblacklist Routes (Didefinisikan di luar resource untuk kejelasan)
     Route::put('instansi/{instansi}/blacklist', [InstansiController::class, 'blacklist'])->name('instansi.blacklist');

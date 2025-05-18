@@ -13,19 +13,28 @@ return new class extends Migration
     {
         Schema::create('users', function (Blueprint $table) {
             $table->id();
+            $table->integer('posisi_id');
+            $table->integer('instansi_id');
+            $table->integer('jurusan_id');
+            $table->integer('role_id');
+            $table->integer('mentor_id');
             $table->string('name');
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
-            $table->rememberToken();
+            $table->string('nim');
+            $table->string('religion');
+            $table->tinyInteger('is_active');
+            // $table->enum('role', ['admin', 'mentor', 'hrd', 'user']);
+            $table->enum('status', ['lulus', 'tes_kemampuan', 'ditolak', 'administrasi', 'wawancara', 'diterima']);
+            $table->string('gender');
+            // $table->string('phone');
+            $table->string('surat');
+            $table->string('cv');
+            $table->text('image');
             $table->timestamps();
         });
 
-        Schema::create('password_reset_tokens', function (Blueprint $table) {
-            $table->string('email')->primary();
-            $table->string('token');
-            $table->timestamp('created_at')->nullable();
-        });
 
         Schema::create('sessions', function (Blueprint $table) {
             $table->string('id')->primary();

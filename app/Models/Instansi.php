@@ -20,8 +20,10 @@ extends Model
      * @var array
      */
     protected $fillable = [
-        'name',
+        'id',
+        'nama',
         'kuota',
+        'kuota_tersedia',
         'is_active',
     ];
 

@@ -18,19 +18,24 @@ class PosisiController extends Controller
             ->orderBy('id', 'desc')
             ->paginate(10);
 
-        return view('pages.posisi.index', compact('posisi'));
+        return view('pages.masteradmin.posisi.index', compact('posisi'));
     }
 
     /**
      * Show the form for creating a new resource.
+     *
+     * @return \Illuminate\Http\Response
      */
-    public function create()
-    {
-        return view('pages.posisi.create_posisi');
-    }
+    // public function create()
+    // {
+    //     return view('instansi.create');
+    // }
 
     /**
      * Store a newly created resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
     {
@@ -38,8 +43,8 @@ class PosisiController extends Controller
             'nama' => 'required|string|max:255',
             'total_kuota' => 'required|integer|min:0',
             'kuota_tersedia' => 'required|integer|min:0|lte:total_kuota',
+            'deskripsi' => 'nullable|string',
             'persyaratan' => 'nullable|string',
-            'status' => 'nullable|in:publish,unpublish',
         ]);
 
         Posisi::create($request->all());
@@ -50,14 +55,20 @@ class PosisiController extends Controller
 
     /**
      * Display the specified resource.
+     *
+     * @param  \App\Models\Posisi  $posisi
+     * @return \Illuminate\Http\Response
      */
     public function show(Posisi $posisi)
     {
-        return view('posisi.show', compact('posisi')); // Anda bisa membuat view ini jika diperlukan
+        return view('posisi.show', compact('posisi'));
     }
 
     /**
      * Show the form for editing the specified resource.
+     *
+     * @param  \App\Models\Posisi  $posisi
+     * @return \Illuminate\Http\Response
      */
     public function edit(Posisi $posisi)
     {
@@ -66,31 +77,34 @@ class PosisiController extends Controller
 
     /**
      * Update the specified resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @param  \App\Models\Posisi  $posisi
+     * @return \Illuminate\Http\Response
      */
     public function update(Request $request, Posisi $posisi)
     {
         $request->validate([
-            'nama' => 'required|string|max:255',
-            'total_kuota' => 'required|integer|min:0',
-            'kuota_tersedia' => 'required|integer|min:0|lte:total_kuota',
-            'persyaratan' => 'nullable|string',
-            'status' => 'nullable|in:publish,unpublish',
+            'nama' => 'required|unique:posisi,nama,' . $posisi->id . '|max:255',
         ]);
 
         $posisi->update($request->all());
 
-        Session::flash('success', 'Posisi berhasil diperbarui.');
+        Session::flash('success', 'posisi berhasil diperbarui.');
         return redirect()->route('posisi.index');
     }
 
     /**
      * Remove the specified resource from storage.
+     *
+     * @param  \App\Models\Posisi  $posisi
+     * @return \Illuminate\Http\Response
      */
     public function destroy(Posisi $posisi)
     {
         $posisi->delete();
 
-        Session::flash('success', 'Posisi berhasil dihapus.');
+        Session::flash('success', 'posisi berhasil dihapus.');
         return redirect()->route('posisi.index');
     }
 }

@@ -17,10 +17,11 @@ class KriteriaController extends Controller
      */
     public function index()
     {
-        // Mendapatkan semua kriteria penilaian.
-        $kriteria = Kriteria::with('judul')->get(); // Eager load untuk efisiensi
+        // Search by judul, pagination 10
+        $kriteria = Kriteria::where('nama', 'like', '%' . request('nama') . '%')
+            ->orderBy('id', 'desc')
+            ->paginate(10);
 
-        // Mengembalikan view 'kriteria.index' dengan data kriteria.
         return view('pages.kriteria.index', compact('kriteria'));
     }
 

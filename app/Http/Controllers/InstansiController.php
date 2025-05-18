@@ -16,7 +16,7 @@ class InstansiController extends Controller
     public function index()
     {
         $instansi = Instansi::all();
-        return view('pages.instansi.index', compact('instansi')); // Sesuaikan nama view jika perlu
+        return view('pages.masteradmin.instansi.index', compact('instansi')); // Sesuaikan nama view jika perlu
     }
 
     /**
@@ -24,10 +24,10 @@ class InstansiController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
-    {
-        return view('instansi.create'); // Sesuaikan nama view jika perlu
-    }
+    // public function create()
+    // {
+    //     return view('instansi.create');
+    // }
 
     /**
      * Store a newly created resource in storage.
@@ -38,14 +38,14 @@ class InstansiController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'name' => 'required|unique:instansi,name|max:255',
+            'nama' => 'required|unique:instansi,nama|max:100',
             'kuota' => 'required|integer|min:0',
-            'is_active' => 'nullable|boolean', // Jika ingin menerima input untuk status aktif
+            'kuota_tersedia' => 'required|integer|min:0|lte:kuota_tersedia',
         ]);
 
         Instansi::create($request->all());
 
-        Session::flash('success', 'Instansi berhasil ditambahkan.');
+        Session::flash('success', 'Mitra berhasil ditambahkan.');
         return redirect()->route('instansi.index');
     }
 
@@ -57,7 +57,7 @@ class InstansiController extends Controller
      */
     public function show(Instansi $instansi)
     {
-        return view('instansi.show', compact('instansi')); // Sesuaikan nama view jika perlu
+        return view('instansi.show', compact('instansi'));
     }
 
     /**
@@ -68,7 +68,7 @@ class InstansiController extends Controller
      */
     public function edit(Instansi $instansi)
     {
-        return view('instansi.edit', compact('instansi')); // Sesuaikan nama view jika perlu
+        return view('instansi.edit', compact('instansi'));
     }
 
     /**
@@ -81,14 +81,12 @@ class InstansiController extends Controller
     public function update(Request $request, Instansi $instansi)
     {
         $request->validate([
-            'name' => 'required|unique:instansi,name,' . $instansi->id . '|max:255',
-            'kuota' => 'required|integer|min:0',
-            'is_active' => 'nullable|boolean', // Jika ingin menerima input untuk status aktif
+            'nama' => 'required|unique:instansi,nama,' . $instansi->id . '|max:255',
         ]);
 
         $instansi->update($request->all());
 
-        Session::flash('success', 'Instansi berhasil diperbarui.');
+        Session::flash('success', 'instansi berhasil diperbarui.');
         return redirect()->route('instansi.index');
     }
 
@@ -102,20 +100,7 @@ class InstansiController extends Controller
     {
         $instansi->delete();
 
-        Session::flash('success', 'Instansi berhasil dihapus.');
+        Session::flash('success', 'instansi berhasil dihapus.');
         return redirect()->route('instansi.index');
-    }
-
-    // Metode blacklist dan unblacklist (jika diperlukan)
-    public function blacklist(Instansi $instansi)
-    {
-        $instansi->update(['is_active' => false]); // Contoh: blacklist = tidak aktif
-        return redirect()->route('instansi.index')->with('success', 'Instansi berhasil di-blacklist.');
-    }
-
-    public function unblacklist(Instansi $instansi)
-    {
-        $instansi->update(['is_active' => true]); // Contoh: unblacklist = aktif
-        return redirect()->route('instansi.index')->with('success', 'Instansi berhasil di-unblacklist.');
     }
 }

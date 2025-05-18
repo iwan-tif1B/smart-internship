@@ -15,14 +15,14 @@ class AdministrasiController extends Controller
             ->orderBy('id', 'desc')
             ->paginate(10);
 
-        return view('pages.administrasi.index', compact('administrasi'));
+        return view('pages.seleksi.administrasi.index', compact('administrasi'));
     }
 
     // Create
     public function create()
     {
-        $kategori = Kategori::all();
-        return view('pages.administrasi.create', compact('kategori'));
+        $administrasi = Administrasi::all();
+        return view('pages.administrasi.create', compact('administrasi'));
     }
 
     // Store
@@ -56,8 +56,8 @@ class AdministrasiController extends Controller
     // Edit
     public function edit(Administrasi $administrasi)
     {
-        $kategori = Kategori::all();
-        return view('pages.administrasi.edit', compact('administrasi', 'kategori'));
+        $administrasi = Administrasi::all();
+        return view('pages.administrasi.edit', compact('administrasi', 'administrasi'));
     }
 
     // Update

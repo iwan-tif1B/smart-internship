@@ -182,9 +182,9 @@
                         <i class="fas fa-file-alt" style="color: white !important;"></i> <span>Template</span>
                     </a>
                     <ul class="dropdown-menu">
-                        <li><a class="text-white" href="{{ route('sertifikat.index') }}">Sertifikat</a></li>
-                        <li><a class="text-white" href="{{ route('templatepenilaian.index') }}">Penilaian</a></li>
-                        <li><a class="text-white" href="{{ route('kriteria.index') }}">Kriteria Penilaian</a></li>
+                        <li><a class="text-white" href="{{ route('templatesertifikat.index') }}">Sertifikat</a></li>
+                        <li><a class="text-white" href="#">Penilaian</a></li>
+                        <li><a class=" text-white" href="#">Kriteria Penilaian</a></li>
                     </ul>
                 </li>
 
@@ -198,12 +198,6 @@
                 <li class="nav-item">
                     <a href="{{ route('testimoni.index') }}" class="nav-link" style="color: white !important;">
                         <i class="fas fa-comment" style="color: white !important;"></i> <span>Testimoni</span>
-                    </a>
-                </li>
-
-                <li class="nav-item">
-                    <a href="#" class="nav-link" style="color: white !important;">
-                        <i class="fas fa-user-shield" style="color: white !important;"></i> <span>Kelola Admin</span>
                     </a>
                 </li>
 

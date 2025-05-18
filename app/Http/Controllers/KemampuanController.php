@@ -2,8 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Kemampuan;
-use App\Models\Kategori;
+use App\Models\Administrasi;
 use Illuminate\Http\Request;
 
 class KemampuanController extends Controller
@@ -12,25 +11,18 @@ class KemampuanController extends Controller
     public function index()
     {
         // Search by judul, pagination 10
-        $kemampuan = Kemampuan::where('judul', 'like', '%' . request('judul') . '%')
+        $administrasi = Administrasi::where('status_administrasi', 'like', '%' . request('judul') . '%')
             ->orderBy('id', 'desc')
             ->paginate(10);
 
-        return view('pages.kemampuan.index', compact('kemampuan'));
+        return view('pages.seleksi.kemampuan.index', compact('administrasi'));
     }
-
-    public function showSoal($id)
-    {
-        $kemampuan = Kemampuan::findOrFail($id);
-        return view('pages.kemampuan.show_soal', compact('kemampuan'));
-    }
-
 
     // Create
     public function create()
     {
-        $kemampuan = Kemampuan::all();
-        return view('pages.kemampuan.create_soal', compact('kemampuan'));
+        $administrasi = Administrasi::all();
+        return view('pages.kemampuan.create_soal', compact('administrasi'));
     }
 
     // Store
@@ -47,7 +39,7 @@ class KemampuanController extends Controller
             'status' => 'required|in:proses,lulus',
         ]);
 
-        Kemampuan::create([
+        Administrasi::create([
             'nama' => $request->nama,
             'email' => $request->email,
             'no_telp' => $request->no_telp,
@@ -58,18 +50,18 @@ class KemampuanController extends Controller
             'status' => $request->status,
         ]);
 
-        return redirect()->route('kemampuan.index')->with('success', 'Data kemampuan berhasil ditambahkan.');
+        return redirect()->route('administrasi.index')->with('success', 'Data administrasi berhasil ditambahkan.');
     }
 
     // Edit
-    public function edit(Kemampuan $kemampuan)
+    public function edit(Administrasi $administrasi)
     {
-        $kategori = Kategori::all();
-        return view('pages.kemampuan.edit', compact('kemampuan', 'kategori'));
+        $administrasi = Administrasi::all();
+        return view('pages.administrasi.edit', compact('administrasi', 'administrasi'));
     }
 
     // Update
-    public function update(Request $request, Kemampuan $kemampuan)
+    public function update(Request $request, Administrasi $administrasi)
     {
         $request->validate([
             'nama' => 'required',
@@ -82,7 +74,7 @@ class KemampuanController extends Controller
             'status' => 'required|in:proses,lulus',
         ]);
 
-        $kemampuan->update([
+        $administrasi->update([
             'nama' => $request->nama,
             'email' => $request->email,
             'no_telp' => $request->no_telp,
@@ -93,19 +85,37 @@ class KemampuanController extends Controller
             'status' => $request->status,
         ]);
 
-        return redirect()->route('kemampuan.index')->with('success', 'Data kemampuan berhasil diperbarui.');
+        return redirect()->route('administrasi.index')->with('success', 'Data administrasi berhasil diperbarui.');
     }
 
     // Destroy
-    public function destroy(Kemampuan $kemampuan)
+    public function destroy(Administrasi $administrasi)
     {
-        $kemampuan->delete();
-        return redirect()->route('kemampuan.index')->with('success', 'Data kemampuan berhasil dihapus.');
+        $administrasi->delete();
+        return redirect()->route('administrasi.index')->with('success', 'Data administrasi berhasil dihapus.');
     }
 
     // Dokumen (opsional)
-    public function dokumen(Kemampuan $kemampuan)
+    public function dokumen(Administrasi $administrasi)
     {
-        return view('pages.kemampuan.dokumen', compact('kemampuan'));
+        return view('pages.administrasi.dokumen', compact('administrasi'));
+    }
+
+    public function terima(Request $request)
+    {
+        $administrasi = Administrasi::findOrFail($request->administrasi_id);
+        $administrasi->status = 'lulus'; // Atau status yang sesuai
+        $administrasi->save();
+
+        return redirect()->route('administrasi.index')->with('success', 'Pendaftar berhasil diterima.');
+    }
+
+    public function tolak(Request $request)
+    {
+        $administrasi = Administrasi::findOrFail($request->administrasi_id);
+        $administrasi->status = 'ditolak'; // Atau status yang sesuai
+        $administrasi->save();
+
+        return redirect()->route('administrasi.index')->with('success', 'Pendaftar berhasil ditolak.');
     }
 }

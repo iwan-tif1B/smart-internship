@@ -5,14 +5,14 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Model;
 
 class Mentor
- extends Model
+extends Model
 {
     /**
      * The table associated with the model.
      *
      * @var string
      */
-    protected $table = 'buku';
+    protected $table = 'mentor';
 
     /**
      * The attributes that are mass assignable.
@@ -20,17 +20,12 @@ class Mentor
      * @var array
      */
     protected $fillable = [
-        'judul',
-        'penulis',
-        'jenis_buku',
-        'tahun_terbit',
+        'nama',
+        'posisi',
+        'email',
+        'password',
+        'is_active',
     ];
-
-
-    public function jenis()
-    {
-        return $this->belongsTo(Kategori::class, 'jenis_buku', 'id');
-    }
 }
 
 // namespace App\Models;

@@ -16,7 +16,7 @@ class JurusanController extends Controller
     public function index()
     {
         $jurusan = Jurusan::all(); // Atau bisa menggunakan pagination: Jurusan::paginate(10);
-        return view('pages.jurusan.index', compact('jurusan'));
+        return view('pages.masteradmin.jurusan.index', compact('jurusan'));
     }
 
     /**
@@ -38,7 +38,7 @@ class JurusanController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'nama' => 'required|unique:jurusan,nama|max:255',
+            'nama' => 'required|unique:jurusan,nama|max:100',
         ]);
 
         Jurusan::create($request->all());
