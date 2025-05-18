@@ -52,4 +52,14 @@ class User extends Authenticatable
             'password' => 'hashed',
         ];
     }
+
+    public function posisi()
+    {
+        return $this->belongsTo(Posisi::class, 'posisi_id', 'id');
+    }
+
+    public function instansi()
+    {
+        return $this->belongsTo(Instansi::class, 'instansi_id', 'id');
+    }
 }

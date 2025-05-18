@@ -4,15 +4,15 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Mitra
- extends Model
+class Instansi
+extends Model
 {
     /**
      * The table associated with the model.
      *
      * @var string
      */
-    protected $table = 'buku';
+    protected $table = 'instansi';
 
     /**
      * The attributes that are mass assignable.
@@ -20,17 +20,16 @@ class Mitra
      * @var array
      */
     protected $fillable = [
-        'judul',
-        'penulis',
-        'jenis_buku',
-        'tahun_terbit',
+        'name',
+        'kuota',
+        'is_active',
     ];
 
 
-    public function jenis()
-    {
-        return $this->belongsTo(Kategori::class, 'jenis_buku', 'id');
-    }
+    // public function jenis()
+    // {
+    //     return $this->belongsTo(Kategori::class, 'jenis_buku', 'id');
+    // }
 }
 
 // namespace App\Models;

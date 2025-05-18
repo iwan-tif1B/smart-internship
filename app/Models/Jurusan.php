@@ -5,14 +5,14 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Model;
 
 class Jurusan
- extends Model
+extends Model
 {
     /**
      * The table associated with the model.
      *
      * @var string
      */
-    protected $table = 'buku';
+    protected $table = 'jurusan';
 
     /**
      * The attributes that are mass assignable.
@@ -20,17 +20,8 @@ class Jurusan
      * @var array
      */
     protected $fillable = [
-        'judul',
-        'penulis',
-        'jenis_buku',
-        'tahun_terbit',
+        'name',
     ];
-
-
-    public function jenis()
-    {
-        return $this->belongsTo(Kategori::class, 'jenis_buku', 'id');
-    }
 }
 
 // namespace App\Models;

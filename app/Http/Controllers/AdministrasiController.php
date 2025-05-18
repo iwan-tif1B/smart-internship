@@ -3,7 +3,6 @@
 namespace App\Http\Controllers;
 
 use App\Models\Administrasi;
-use App\Models\Kategori;
 use Illuminate\Http\Request;
 
 class AdministrasiController extends Controller
@@ -12,7 +11,7 @@ class AdministrasiController extends Controller
     public function index()
     {
         // Search by judul, pagination 10
-        $administrasi = Administrasi::where('judul', 'like', '%' . request('judul') . '%')
+        $administrasi = Administrasi::where('status_administrasi', 'like', '%' . request('judul') . '%')
             ->orderBy('id', 'desc')
             ->paginate(10);
 
@@ -120,4 +119,3 @@ class AdministrasiController extends Controller
         return redirect()->route('administrasi.index')->with('success', 'Pendaftar berhasil ditolak.');
     }
 }
-

@@ -12,19 +12,24 @@ use App\Http\Controllers\PeminjamanController;
 use App\Http\Controllers\WawancaraController;
 use App\Http\Controllers\PosisiController;
 use App\Http\Controllers\JurusanController;
-use App\Http\Controllers\MitraController;
+use App\Http\Controllers\InstansiController;
 use App\Http\Controllers\SertifikatController;
 use App\Http\Controllers\TemplatePenilaianController;
 use App\Http\Controllers\KelolaMentorController;
 use App\Http\Controllers\TestimoniController;
 use App\Http\Controllers\KriteriaController;
 use App\Http\Controllers\PenilaianController;
+use App\Http\Controllers\RegisterController;
 
 
 
 
+Route::post('/create_new_account/store', [RegisterController::class, 'store'])->name('create_new_account.store');
 // Authentication Routes
 Route::get('/', function () {
+    return view('pages.auth.home');
+});
+Route::get('/signin', function () {
     return view('pages.auth.auth-login');
 });
 Route::get('/register', function () {
@@ -46,7 +51,7 @@ Route::middleware(['auth'])->group(function () {
     Route::resource('wawancara', WawancaraController::class);
     Route::resource('posisi', PosisiController::class);
     Route::resource('jurusan', JurusanController::class);
-    Route::resource('mitra', MitraController::class);
+    Route::resource('instansi', InstansiController::class);
     Route::resource('masterps', MasterpsController::class);
     Route::resource('datalist', DatalistController::class);
     Route::resource('pinjam', PeminjamanController::class);
@@ -56,10 +61,10 @@ Route::middleware(['auth'])->group(function () {
     Route::resource('kriteria', KriteriaController::class);
     Route::resource('testimoni', TestimoniController::class);
     Route::resource('penilaian', PenilaianController::class);
-    
+
     // Mitra Blacklist/Unblacklist Routes (Didefinisikan di luar resource untuk kejelasan)
-    Route::put('mitra/{mitra}/blacklist', [MitraController::class, 'blacklist'])->name('mitra.blacklist');
-    Route::put('mitra/{mitra}/unblacklist', [MitraController::class, 'unblacklist'])->name('mitra.unblacklist');
+    Route::put('instansi/{instansi}/blacklist', [InstansiController::class, 'blacklist'])->name('instansi.blacklist');
+    Route::put('instansi/{instansi}/unblacklist', [InstansiController::class, 'unblacklist'])->name('instansi.unblacklist');
 
     // Master PS Specific Routes
     Route::prefix('masterps/{id}')->group(function () {
@@ -88,7 +93,7 @@ Route::middleware(['auth'])->group(function () {
     // Kemampuan Specific Routes (Soal)
     Route::prefix('kemampuan')->group(function () {
         Route::get('{id}/soal', [KemampuanController::class, 'showSoal'])->name('kemampuan.showSoal');
-        Route::get('create', [KemampuanController::class, 'create'])->name('kemampuan.create'); 
+        Route::get('create', [KemampuanController::class, 'create'])->name('kemampuan.create');
         Route::post('', [KemampuanController::class, 'store'])->name('kemampuan.store');
         Route::put('terima', [KemampuanController::class, 'terima'])->name('kemampuan.terima');
         Route::put('tolak', [KemampuanController::class, 'tolak'])->name('kemampuan.tolak');
@@ -97,6 +102,4 @@ Route::middleware(['auth'])->group(function () {
     // Wawancara Specific Routes
     Route::put('lulus', [WawancaraController::class, 'lulus'])->name('wawancara.lulus');
     Route::put('tolak', [WawancaraController::class, 'tolak'])->name('wawancara.tolak');
-
-   
 });

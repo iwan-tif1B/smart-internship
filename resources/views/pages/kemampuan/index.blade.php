@@ -324,8 +324,8 @@
                             @foreach ($kemampuan as $item)
                                 <tr>
                                     <td>{{ $loop->iteration }}</td>
-                                    <td>{{ $item->nama }}</td>
-                                    <td>{{ $item->email }}</td>
+                                    <td>{{ $item->nama->name }}</td>
+                                    <td>{{ $item->nama->email }}</td>
                                     <td>{{ $item->posisi }}</td>
                                     <td>
                                         {{ \Carbon\Carbon::parse($item->tanggal_tes)->translatedFormat('d M Y') }}

@@ -13,7 +13,11 @@ class PosisiController extends Controller
      */
     public function index()
     {
-        $posisi = Posisi::latest()->paginate(10); // Ambil semua posisi dengan paginasi
+        // Search by judul, pagination 10
+        $posisi = Posisi::where('nama', 'like', '%' . request('nama') . '%')
+            ->orderBy('id', 'desc')
+            ->paginate(10);
+
         return view('pages.posisi.index', compact('posisi'));
     }
 

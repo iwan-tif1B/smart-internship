@@ -12,7 +12,7 @@ class Testimoni
      *
      * @var string
      */
-    protected $table = 'buku';
+    protected $table = 'testimoni';
 
     /**
      * The attributes that are mass assignable.
@@ -20,17 +20,16 @@ class Testimoni
      * @var array
      */
     protected $fillable = [
-        'judul',
-        'penulis',
-        'jenis_buku',
-        'tahun_terbit',
+        'user_id',
+        'mentor_id',
+        'content',
     ];
 
-
-    public function jenis()
+        public function nama()
     {
-        return $this->belongsTo(Kategori::class, 'jenis_buku', 'id');
+        return $this->belongsTo(User::class, 'user_id', 'id');
     }
+
 }
 
 // namespace App\Models;

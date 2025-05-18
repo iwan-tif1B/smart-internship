@@ -4,7 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Administrasi
+class Periode
 extends Model
 {
     /**
@@ -12,7 +12,7 @@ extends Model
      *
      * @var string
      */
-    protected $table = 'pengajuan';
+    protected $table = 'periode';
 
     /**
      * The attributes that are mass assignable.
@@ -21,30 +21,15 @@ extends Model
      */
     protected $fillable = [
         'user_id',
-        'posisi_id',
-        'periode_id',
+        'tanggal_pengajuan',
+        'tanggal_selesai',
         'is_active',
-        'status_administrasi',
-        'status_tes_kemampuan',
-        'status_wawancara',
-        'status',
-        'tanggal_wawancara',
-        'tanggal_awal_tes_kemampuan',
-        'tanggal_akhir_tes_kemampuan',
-        'link_wawancara',
-        'soal_tes_kemampuan',
-        'jawaban_tes_kemampuan',
     ];
 
 
     public function periode()
     {
-        return $this->belongsTo(Periode::class, 'periode_id', 'id');
-    }
-
-    public function nama()
-    {
-        return $this->belongsTo(User::class, 'user_id', 'id');
+        return $this->belongsTo(Kategori::class, 'jenis_buku', 'id');
     }
 }
 

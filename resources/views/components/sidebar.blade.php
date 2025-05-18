@@ -38,7 +38,8 @@
 
         /* Jarak antara logo dan menu */
         .sidebar-brand {
-            margin-bottom: 30px; /* Menambahkan jarak bawah dari logo */
+            margin-bottom: 30px;
+            /* Menambahkan jarak bawah dari logo */
         }
 
         /* Menu list */
@@ -58,8 +59,10 @@
             display: flex;
             align-items: center;
             padding: 15px;
-            color: white; /* Warna teks putih */
-            text-decoration: none; /* Menghilangkan garis bawah pada link */
+            color: white;
+            /* Warna teks putih */
+            text-decoration: none;
+            /* Menghilangkan garis bawah pada link */
             font-size: 16px;
         }
 
@@ -68,9 +71,10 @@
         }
 
         /* Active menu link */
-        .nav-item.active > .nav-link {
+        .nav-item.active>.nav-link {
             background-color: #3b4b63;
-            color: white; /* Warna teks putih saat aktif */
+            color: white;
+            /* Warna teks putih saat aktif */
         }
 
         /* Dropdown menu */
@@ -89,7 +93,8 @@
 
         /* Teks putih dalam dropdown */
         .dropdown-menu li a {
-            color: white; /* Warna teks putih untuk dropdown */
+            color: white;
+            /* Warna teks putih untuk dropdown */
             text-decoration: none;
             padding: 8px;
             display: block;
@@ -101,22 +106,23 @@
         }
 
         /* Hover effects pada item menu */
-        .sidebar-menu .nav-item:hover > .nav-link {
+        .sidebar-menu .nav-item:hover>.nav-link {
             background-color: #3b4b63;
             color: white !important;
         }
 
-        .sidebar-menu .nav-item:hover > .nav-link i {
+        .sidebar-menu .nav-item:hover>.nav-link i {
             color: white !important;
         }
 
-        .sidebar-menu .nav-item.active > .nav-link i {
+        .sidebar-menu .nav-item.active>.nav-link i {
             color: white !important;
         }
 
         /* Warna header menu */
         .menu-header {
-            color: white; /* Warna teks header putih */
+            color: white;
+            /* Warna teks header putih */
             padding: 10px 15px;
             font-size: 18px;
             font-weight: bold;
@@ -141,75 +147,75 @@
 
             <ul class="sidebar-menu">
                 <li class="nav-item active">
-                    <a href="{{ route('home') }}" class="nav-link">
-                        <i class="fas fa-tachometer-alt" style="color: white;"></i> <span>Dashboard</span>
+                    <a href="{{ route('home') }}" class="nav-link" style="color: white !important;">
+                        <i class="fas fa-home" style="color: white !important;"></i> <span>Dashboard</span>
                     </a>
                 </li>
 
                 <!-- <li class="menu-header">Seleksi</li> -->
                 <li class="nav-item dropdown">
-                    <a href="#" class="nav-link has-dropdown">
-                        <i class="fas fa-cog" style="color: white;"></i> <span>Seleksi</span>
+                    <a href="#" class="nav-link has-dropdown text-white">
+                        <i class="fas fa-list-check" style="color: white !important;"></i> <span>Seleksi</span>
                     </a>
                     <ul class="dropdown-menu">
-                        <li><a href="{{ route('administrasi.index') }}">Administrasi</a></li>
-                        <li><a href="{{ route('kemampuan.index') }}">Tes Kemampuan</a></li>
-                        <li><a href="{{ route('wawancara.index') }}">Wawancara</a></li>
+                        <li><a class="text-white" href="{{ route('administrasi.index') }}">Administrasi</a></li>
+                        <li><a class="text-white" href="{{ route('kemampuan.index') }}">Tes Kemampuan</a></li>
+                        <li><a class="text-white" href=" {{ route('wawancara.index') }}">Wawancara</a></li>
                     </ul>
                 </li>
 
                 <!-- <li class="menu-header">Master Admin</li> -->
                 <li class="nav-item dropdown">
-                    <a href="#" class="nav-link has-dropdown">
-                        <i class="fas fa-cog" style="color: white;"></i> <span>Master Admin</span>
+                    <a href="#" class="nav-link has-dropdown text-white">
+                        <i class="fas fa-users-cog" style="color: white !important;"></i> <span>Master Admin</span>
                     </a>
                     <ul class="dropdown-menu">
-                        <li><a href="{{ route('posisi.index') }}">Posisi</a></li>
-                        <li><a href="{{ route('jurusan.index') }}">Jurusan</a></li>
-                        <li><a href="{{ route('mitra.index') }}">Mitra</a></li>
+                        <li><a class="text-white" href="{{ route('posisi.index') }}">Posisi</a></li>
+                        <li><a class="text-white" href="{{ route('jurusan.index') }}">Jurusan</a></li>
+                        <li><a class="text-white" href="{{ route('instansi.index') }}">Mitra</a></li>
                     </ul>
                 </li>
 
                 <!-- <li class="menu-header">Template</li> -->
                 <li class="nav-item dropdown">
-                    <a href="#" class="nav-link has-dropdown">
-                        <i class="fas fa-cog" style="color: white;"></i> <span>Template</span>
+                    <a href="#" class="nav-link has-dropdown text-white">
+                        <i class="fas fa-file-alt" style="color: white !important;"></i> <span>Template</span>
                     </a>
                     <ul class="dropdown-menu">
-                        <li><a href="{{ route('sertifikat.index') }}">Sertifikat</a></li>
-                        <li><a href="{{ route('templatepenilaian.index') }}">Penilaian</a></li>
-                        <li><a href="{{ route('kriteria.index') }}">Kriteria Penilaian</a></li>
+                        <li><a class="text-white" href="{{ route('sertifikat.index') }}">Sertifikat</a></li>
+                        <li><a class="text-white" href="{{ route('templatepenilaian.index') }}">Penilaian</a></li>
+                        <li><a class="text-white" href="{{ route('kriteria.index') }}">Kriteria Penilaian</a></li>
                     </ul>
                 </li>
 
                 <!-- <li class="menu-header">Kelola</li> -->
                 <li class="nav-item">
-                    <a href="{{ route('kelolamentor.index') }}"class="nav-link">
-                        <i class="fas fa-user"style="color: white;"></i> <span>Kelola Mentor</span>
+                    <a href="{{ route('kelolamentor.index') }}" class="nav-link" style="color: white !important;">
+                        <i class="fas fa-user" style="color: white !important;"></i> <span>Kelola Mentor</span>
                     </a>
                 </li>
 
                 <li class="nav-item">
-                    <a href="{{ route('testimoni.index') }}" class="nav-link">
-                        <i class="fas fa-comment" style="color: white;"></i> <span>Testimoni</span>
+                    <a href="{{ route('testimoni.index') }}" class="nav-link" style="color: white !important;">
+                        <i class="fas fa-comment" style="color: white !important;"></i> <span>Testimoni</span>
                     </a>
                 </li>
 
                 <li class="nav-item">
-                    <a href="#" class="nav-link">
-                        <i class="fas fa-star" style="color: white;"></i> <span>Penilaian</span>
+                    <a href="#" class="nav-link" style="color: white !important;">
+                        <i class="fas fa-user-shield" style="color: white !important;"></i> <span>Kelola Admin</span>
                     </a>
                 </li>
 
                 <!-- <li class="menu-header">Laporan</li> -->
                 <li class="nav-item dropdown">
-                    <a href="#" class="nav-link has-dropdown">
-                        <i class="fas fa-cog" style="color: white;"></i> <span>Laporan</span>
+                    <a href="#" class="nav-link has-dropdown text-white">
+                        <i class="fas fa-lock" style="color: white !important;"></i> <span>Laporan</span>
                     </a>
                     <ul class="dropdown-menu">
-                        <li><a href="#">Peserta Magang Aktif</a></li>
-                        <li><a href="#">Pendaftar Magang</a></li>
-                        <li><a href="#">Alumni Magang</a></li>
+                        <li><a class="text-white" href="#">Peserta Magang Aktif</a></li>
+                        <li><a class="text-white" href="#">Pendaftar Magang</a></li>
+                        <li><a class="text-white" href="#">Alumni Magang</a></li>
                     </ul>
                 </li>
 
