@@ -334,7 +334,7 @@
                         </tr>
                     </thead>
                     <tbody>
-                        @foreach ($administrasi as $item)
+                        @foreach ($kemampuan as $item)
                         <tr>
                             <td>{{ $loop->iteration }}</td>
                             <td>{{ $item->nama->name }}</td>
@@ -391,7 +391,7 @@
             </div>
 
             <div class="float-right mt-3">
-                {{ $administrasi->withQueryString()->links() }}
+                {{ $kemampuan->withQueryString()->links() }}
             </div>
 
         </div>

@@ -334,7 +334,7 @@
                         </tr>
                     </thead>
                     <tbody>
-                        @foreach ($administrasi as $item)
+                        @foreach ($wawancara as $item)
                         <tr>
                             <td>{{ $loop->iteration }}</td>
                             <td>{{ $item->nama->name }}</td>
@@ -363,9 +363,6 @@
                                         <i class="fas fa-align-justify"></i>
                                     </button>
                                     <div class="dropdown-menu" aria-labelledby="aksiDropdown{{ $item->id }}">
-                                        <a href="{{ route('wawancara.edit', $item->id) }}" class="dropdown-item">
-                                            <i class="bi bi-pencil-square"></i> Edit
-                                        </a>
                                         <div class="dropdown-divider"></div>
                                         <a class="dropdown-item terima-btn" href="#" data-toggle="modal"
                                             data-target="#terimaModal" data-id="{{ $item->id }}">
@@ -385,7 +382,7 @@
             </div>
 
             <div class="float-right mt-3">
-                {{ $administrasi->withQueryString()->links() }}
+                {{ $wawancara->withQueryString()->links() }}
             </div>
 
         </div>

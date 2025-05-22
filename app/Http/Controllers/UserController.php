@@ -15,7 +15,7 @@ class UserController extends Controller
         $users = User::where('name', 'like', '%' . request('name') . '%')
             ->orderBy('id', 'desc')
             ->paginate(10);
-        return view('pages.users.index', compact('users'));
+        return view('pages.user.have_acc.profile.index', compact('users'));
     }
 
     //create

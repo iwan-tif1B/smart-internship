@@ -1754,6 +1754,8 @@ progress {
   color: var(--bs-table-color);
   vertical-align: top;
   border-color: var(--bs-table-border-color);
+  border-radius: 8px; /* Atur nilai kelengkungan sesuai keinginan Anda */
+  overflow: hidden; /
 }
 .table > :not(caption) > * > * {
   padding: 0.5rem 0.5rem;
@@ -1899,8 +1901,8 @@ progress {
 }
 
 .table-light {
-  --bs-table-color: #000;
-  --bs-table-bg: #f8f9fa;
+  --bs-table-color: #f8f9fa;
+  --bs-table-bg: #eb2027;
   --bs-table-border-color: #dfe0e1;
   --bs-table-striped-bg: #ecedee;
   --bs-table-striped-color: #000;
@@ -4609,6 +4611,7 @@ textarea.form-control-lg {
   white-space: nowrap;
   vertical-align: baseline;
   border-radius: var(--bs-badge-border-radius);
+  
 }
 .badge:empty {
   display: none;
@@ -10866,6 +10869,8 @@ header.masthead h1, header.masthead .h1 {
 }
 
 .navbar-custom {
+  position: fixed;
+  z-index: 1000;
   background-color: #fff;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
@@ -10884,69 +10889,6 @@ header.masthead h1, header.masthead .h1 {
   font-size: 0.6rem;
   transform: translate(50%, -30%);
 }
-
-
-@media (min-width: 768px) {
-  header.masthead {
-    padding-top: 12rem;
-    padding-bottom: 12rem;
-  }
-  header.masthead h1, header.masthead .h1 {
-    font-size: 3rem;
-  }
-}
-
-.showcase .showcase-text {
-  padding: 3rem;
-}
-.showcase .showcase-img {
-  min-height: 30rem;
-  background-size: cover;
-}
-@media (min-width: 768px) {
-  .showcase .showcase-text {
-    padding: 7rem;
-  }
-}
-
-.testimonials {
-  padding-top: 7rem;
-  padding-bottom: 7rem;
-}
-.testimonials .testimonial-item {
-  max-width: 18rem;
-}
-.testimonials .testimonial-item img {
-  max-width: 12rem;
-  box-shadow: 0px 5px 5px 0px #adb5bd;
-}
-
-.call-to-action {
-  position: relative;
-  background: url("../assets/img/bg-masthead.jpg") no-repeat center center;
-  background-size: cover;
-  padding-top: 5rem;
-  padding-bottom: 7rem;
-}
-.call-to-action:before {
-  content: "";
-  position: absolute;
-  height: 100%;
-  width: 100%;
-  top: 0;
-  left: 0;
-  opacity: 0.5;
-}
-
-footer.footer {
-  padding-top: 4rem;
-  padding-bottom: 4rem;
-}
-
-.btn-danger {
-  border-radius: 8px;
-}
-
 
 /* Header */
 
@@ -10989,6 +10931,76 @@ footer.footer {
   position: relative;
   z-index: 3;
 }
+
+
+
+@media (min-width: 768px) {
+  header.masthead {
+    padding-top: 12rem;
+    padding-bottom: 12rem;
+  }
+  header.masthead h1, header.masthead .h1 {
+    font-size: 3rem;
+  }
+}
+
+.showcase .showcase-text {
+  padding: 3rem;
+}
+.showcase .showcase-img {
+  min-height: 30rem;
+  background-size: cover;
+}
+@media (min-width: 768px) {
+  .showcase .showcase-text {
+    padding: 7rem;
+  }
+}
+
+
+
+
+
+
+
+.testimonials {
+  padding-top: 7rem;
+  padding-bottom: 7rem;
+}
+.testimonials .testimonial-item {
+  max-width: 18rem;
+}
+.testimonials .testimonial-item img {
+  max-width: 12rem;
+  box-shadow: 0px 5px 5px 0px #adb5bd;
+}
+
+.call-to-action {
+  position: relative;
+  background: url("../assets/img/bg-masthead.jpg") no-repeat center center;
+  background-size: cover;
+  padding-top: 5rem;
+  padding-bottom: 7rem;
+}
+.call-to-action:before {
+  content: "";
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  top: 0;
+  left: 0;
+  opacity: 0.5;
+}
+
+footer.footer {
+  padding-top: 4rem;
+  padding-bottom: 4rem;
+}
+
+.btn-danger {
+  border-radius: 8px;
+}
+
 
 
 /* Apa itu smart internship */

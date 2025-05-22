@@ -84,139 +84,149 @@
       object-fit: cover;
     }
 
-/* Topbar Dropdown Notifikasi */
-.topbar .dropdown {
-  position: static;
-}
+    /* Topbar Dropdown Notifikasi */
+    .topbar .dropdown {
+      position: static;
+    }
 
-.topbar .dropdown .dropdown-menu {
-  width: 20rem; /* Lebar tetap */
-  right: 0.75rem;
-  border: none;
-  padding: 0;
-  overflow: hidden;
-  box-shadow: 0 4px 20px rgba(0,0,0,0.1);
-  border-radius: 8px;
-  background-color: #fff; /* Background putih */
-}
+    .topbar .dropdown .dropdown-menu {
+      width: 20rem;
+      /* Lebar tetap */
+      right: 0.75rem;
+      border: none;
+      padding: 0;
+      overflow: hidden;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+      border-radius: 8px;
+      background-color: #fff;
+      /* Background putih */
+    }
 
-.topbar .dropdown-list {
-  padding: 0;
-  overflow: hidden;
-}
+    .topbar .dropdown-list {
+      padding: 0;
+      overflow: hidden;
+    }
 
-.topbar .dropdown-item {
-  display: flex;
-  align-items: flex-start;
-  padding: 1rem;
-  white-space: normal;
-  border-bottom: 1px solid #e3e6f0;
-  color: #5a5c69;
-  text-decoration: none;
-  background-color: #fff; /* Pastikan item putih */
-}
+    .topbar .dropdown-item {
+      display: flex;
+      align-items: flex-start;
+      padding: 1rem;
+      white-space: normal;
+      border-bottom: 1px solid #e3e6f0;
+      color: #5a5c69;
+      text-decoration: none;
+      background-color: #fff;
+      /* Pastikan item putih */
+    }
 
-.topbar .dropdown-item:last-child {
-  border-bottom: none;
-}
+    .topbar .dropdown-item:last-child {
+      border-bottom: none;
+    }
 
-.topbar .dropdown-item:hover {
-  background-color: #f8f9fc; /* Hover abu muda */
-}
+    .topbar .dropdown-item:hover {
+      background-color: #f8f9fc;
+      /* Hover abu muda */
+    }
 
-.topbar .dropdown-item .icon-circle {
-  width: 2.5rem;
-  height: 2.5rem;
-  text-align: center;
-  line-height: 2.5rem;
-  border-radius: 50%;
-  flex-shrink: 0;
-  margin-right: 1rem;
-  color: #fff; /* Icon text putih */
-}
+    .topbar .dropdown-item .icon-circle {
+      width: 2.5rem;
+      height: 2.5rem;
+      text-align: center;
+      line-height: 2.5rem;
+      border-radius: 50%;
+      flex-shrink: 0;
+      margin-right: 1rem;
+      color: #fff;
+      /* Icon text putih */
+    }
 
-/* Icon Circle Colors */
-.topbar .icon-circle.bg-primary {
-  background-color: #4e73df; /* Biru */
-}
+    /* Icon Circle Colors */
+    .topbar .icon-circle.bg-primary {
+      background-color: #4e73df;
+      /* Biru */
+    }
 
-.topbar .icon-circle.bg-success {
-  background-color: #1cc88a; /* Hijau */
-}
+    .topbar .icon-circle.bg-success {
+      background-color: #1cc88a;
+      /* Hijau */
+    }
 
-.topbar .icon-circle.bg-warning {
-  background-color: #f6c23e; /* Kuning */
-}
+    .topbar .icon-circle.bg-warning {
+      background-color: #f6c23e;
+      /* Kuning */
+    }
 
-.topbar .dropdown-item .icon-circle i {
-  font-size: 1rem;
-  color: #fff;
-}
+    .topbar .dropdown-item .icon-circle i {
+      font-size: 1rem;
+      color: #fff;
+    }
 
-.topbar .dropdown-item .small {
-  font-size: 0.75rem;
-  color: #858796;
-  margin-bottom: 0.25rem;
-  display: block;
-}
+    .topbar .dropdown-item .small {
+      font-size: 0.75rem;
+      color: #858796;
+      margin-bottom: 0.25rem;
+      display: block;
+    }
 
-.topbar .dropdown-item .font-weight-bold {
-  font-weight: 700;
-  color: #5a5c69;
-}
+    .topbar .dropdown-item .font-weight-bold {
+      font-weight: 700;
+      color: #5a5c69;
+    }
 
-.topbar .dropdown-header {
-  background-color: #4e73df; /* Header biru */
-  color: white;
-  padding: 0.75rem 1rem;
-  font-size: 0.875rem;
-  font-weight: bold;
-}
+    .topbar .dropdown-header {
+      background-color: #4e73df;
+      /* Header biru */
+      color: white;
+      padding: 0.75rem 1rem;
+      font-size: 0.875rem;
+      font-weight: bold;
+    }
 
-/* Footer di dropdown (Show All Alerts) */
-.topbar .dropdown-footer {
-  text-align: center;
-  padding: 0.75rem 1rem;
-  font-size: 0.8rem;
-  color: #6c757d;
-  background-color: #f8f9fc;
-  text-decoration: none;
-  display: block;
-}
+    /* Footer di dropdown (Show All Alerts) */
+    .topbar .dropdown-footer {
+      text-align: center;
+      padding: 0.75rem 1rem;
+      font-size: 0.8rem;
+      color: #6c757d;
+      background-color: #f8f9fc;
+      text-decoration: none;
+      display: block;
+    }
 
-.topbar .dropdown-footer:hover {
-  background-color: #eaecf4;
-  color: #5a5c69;
-}
+    .topbar .dropdown-footer:hover {
+      background-color: #eaecf4;
+      color: #5a5c69;
+    }
 
-.topbar .dropdown {
-  position: relative; /* supaya dropdown-menu bisa posisi absolute */
-}
+    .topbar .dropdown {
+      position: relative;
+      /* supaya dropdown-menu bisa posisi absolute */
+    }
 
-.topbar .dropdown-menu {
-  right: 0;
-  left: auto;
-  top: 100%;
-  margin-top: 0.5rem;
-  display: none; /* Awalnya hidden */
-}
+    .topbar .dropdown-menu {
+      right: 0;
+      left: auto;
+      top: 100%;
+      margin-top: 0.5rem;
+      display: none;
+      /* Awalnya hidden */
+    }
 
-.topbar .dropdown.show .dropdown-menu {
-  display: block; /* Muncul saat diklik */
-}
-
-
-
-
-
-/* Responsive Navbar */
-@media (max-width: 768px) {
-  .navbar .navbar-nav {
-    flex-direction: row;
-  }
-}
+    .topbar .dropdown.show .dropdown-menu {
+      display: block;
+      /* Muncul saat diklik */
+    }
 
 
+
+
+
+    /* Responsive Navbar */
+    @media (max-width: 768px) {
+      .navbar .navbar-nav {
+        flex-direction: row;
+      }
+    }
   </style>
 </head>
 
@@ -237,83 +247,89 @@
 
           <!-- Alerts Dropdown -->
           <li class="nav-item dropdown no-arrow mx-1">
-  <a class="nav-link dropdown-toggle" href="#" id="alertsDropdown" role="button" data-toggle="dropdown"
-     aria-haspopup="true" aria-expanded="false">
-    <div class="icon-bell-wrapper">
-      <i class="fas fa-bell icon-bell"></i>
-      <span class="badge-counter">3+</span>
-    </div>
-  </a>
-  
-  <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="alertsDropdown">
-    <!-- Notifikasi 1 -->
-    <a class="dropdown-item d-flex align-items-start" href="#">
-      <div class="icon-circle bg-primary">
-        <i class="fas fa-file-alt"></i>
-      </div>
-      <div>
-        <div class="small">December 12, 2019</div>
-        <span class="font-weight-bold">A new monthly report is ready to download!</span>
-      </div>
-    </a>
-
-    <!-- Notifikasi 2 -->
-    <a class="dropdown-item d-flex align-items-start" href="#">
-      <div class="icon-circle bg-success">
-        <i class="fas fa-donate"></i>
-      </div>
-      <div>
-        <div class="small">December 7, 2019</div>
-        $290.29 has been deposited into your account!
-      </div>
-    </a>
-
-    <!-- Notifikasi 3 -->
-    <a class="dropdown-item d-flex align-items-start" href="#">
-      <div class="icon-circle bg-warning">
-        <i class="fas fa-exclamation-triangle"></i>
-      </div>
-      <div>
-        <div class="small">December 2, 2019</div>
-        Spending Alert: We've noticed unusually high spending for your account.
-      </div>
-    </a>
-
-    <!-- Footer -->
-    <a class="dropdown-footer" href="#">Show All Alerts</a>
-  </div>
-</li>
-
-
-          <!-- User Dropdown -->
-          <li class="nav-item dropdown no-arrow">
-            <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              <span class="mr-2 d-none d-lg-inline text-gray-600 small">Kemal</span>
-              <img class="img-profile rounded-circle" src="img/profile.svg" />
+            <a class="nav-link dropdown-toggle" href="#" id="alertsDropdown" role="button" data-toggle="dropdown"
+              aria-haspopup="true" aria-expanded="false">
+              <div class="icon-bell-wrapper">
+                <i class="fas fa-bell icon-bell"></i>
+                <span class="badge-counter">3+</span>
+              </div>
             </a>
-            <div
-                  class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
-                  aria-labelledby="userDropdown"
-                >
-                  <a class="dropdown-item" href="#">
-                    <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
-                    Profile
-                  </a>
-                  <a class="dropdown-item" href="#">
-                    <i class="fas fa-cogs fa-sm fa-fw mr-2 text-gray-400"></i>
-                    Ganti Kata Sandi
-                  </a>
-                  <div class="dropdown-divider"></div>
-                  <div class="dropdown-divider"></div>
-                <a href="#" class="dropdown-item has-icon text-danger"
-                    onclick="event.preventDefault(); document.getElementById('logout-form').submit()">
-                    <i class="fas fa-sign-out-alt"></i> Logout
-                </a>
-                <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                    @csrf
-                </form>
+
+            <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="alertsDropdown">
+              <!-- Notifikasi 1 -->
+              <a class="dropdown-item d-flex align-items-start" href="#">
+                <div class="icon-circle bg-primary">
+                  <i class="fas fa-file-alt"></i>
                 </div>
+                <div>
+                  <div class="small">December 12, 2019</div>
+                  <span class="font-weight-bold">A new monthly report is ready to download!</span>
+                </div>
+              </a>
+
+              <!-- Notifikasi 2 -->
+              <a class="dropdown-item d-flex align-items-start" href="#">
+                <div class="icon-circle bg-success">
+                  <i class="fas fa-donate"></i>
+                </div>
+                <div>
+                  <div class="small">December 7, 2019</div>
+                  $290.29 has been deposited into your account!
+                </div>
+              </a>
+
+              <!-- Notifikasi 3 -->
+              <a class="dropdown-item d-flex align-items-start" href="#">
+                <div class="icon-circle bg-warning">
+                  <i class="fas fa-exclamation-triangle"></i>
+                </div>
+                <div>
+                  <div class="small">December 2, 2019</div>
+                  Spending Alert: We've noticed unusually high spending for your account.
+                </div>
+              </a>
+
+              <!-- Footer -->
+              <a class="dropdown-footer" href="#">Show All Alerts</a>
+            </div>
           </li>
+
+
+          <li class="nav-item dropdown no-arrow">
+            <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
+              data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              <span class="mr-2 d-none d-lg-inline text-gray-600 small">Kemal</span>
+              <img class="img-profile rounded-circle" src="img/profile.svg" alt="Profile" />
+            </a>
+
+            <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
+              aria-labelledby="userDropdown">
+
+              <a class="dropdown-item d-flex align-items-center" href="{{ route('profileadmin.index') }}">
+                <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-600"></i>
+                <span>Profile</span>
+              </a>
+
+              <a class="dropdown-item d-flex align-items-center" href="#">
+                <i class="fas fa-key fa-sm fa-fw mr-2 text-gray-600"></i>
+                <span>Ganti Kata Sandi</span>
+              </a>
+
+              <div class="dropdown-divider"></div>
+
+              <a href="#" class="dropdown-item d-flex align-items-center text-danger"
+                onclick="event.preventDefault(); document.getElementById('logout-form').submit()">
+                <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2"></i>
+                <span>Logout</span>
+              </a>
+
+              <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                @csrf
+              </form>
+
+            </div>
+          </li>
+
 
         </ul>
       </nav>

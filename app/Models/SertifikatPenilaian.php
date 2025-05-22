@@ -4,7 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class ProfileUser
+class SertifikatPenilaian
 extends Model
 {
     /**

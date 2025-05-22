@@ -4,7 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Administrasi
+class Pengajuan
 extends Model
 {
     /**
@@ -19,6 +19,7 @@ extends Model
      *
      * @var array
      */
+
     protected $fillable = [
         'user_id',
         'posisi_id',
@@ -40,6 +41,15 @@ extends Model
     public function periode()
     {
         return $this->belongsTo(Periode::class, 'periode_id', 'id');
+    }
+
+    public function posisi()
+    {
+        return $this->belongsTo(Posisi::class, 'posisi_id', 'id');
+    }
+    public function instansi()
+    {
+        return $this->belongsTo(Instansi::class, 'instansi_id', 'id');
     }
 
     public function nama()

@@ -18,9 +18,16 @@
         color: #3b82f6;
     }
 
-    .badge-lulus {
+    .badge-diterima {
+        /* Disesuaikan dengan nilai di DB */
         background-color: #bbf7d0;
         color: #22c55e;
+    }
+
+    .badge-ditolak {
+        /* Disesuaikan dengan nilai di DB dan CSS */
+        background-color: #fecaca;
+        color: #ef4444;
     }
 
     .icon-button {
@@ -29,18 +36,13 @@
         background: #f1f5f9;
         border: none;
         display: inline-flex;
-        /* Gunakan inline-flex untuk perataan di dalamnya */
         align-items: center;
-        /* Ratakan item (ikon) secara vertikal di tengah tombol */
         justify-content: center;
-        /* Ratakan item (ikon) secara horizontal di tengah tombol */
         border-radius: 12px;
         cursor: pointer;
         transition: all 0.2s ease-in-out;
         padding: 0;
-        /* Reset padding agar perataan flex bekerja baik */
         margin: 0;
-        /* Reset margin */
     }
 
     .icon-button i {
@@ -57,27 +59,22 @@
         color: #ffffff !important;
         font-weight: bold;
         vertical-align: middle;
-        /* Pastikan ini ada */
         text-align: center;
-        /* Pertahankan jika Anda ingin teks header tetap di tengah */
     }
 
     .table thead th:first-child {
         text-align: left;
-        /* Kembalikan teks "No" ke kiri */
     }
 
     .table tbody td {
         vertical-align: middle;
-        /* Pastikan semua isi sel berada di tengah vertikal */
     }
 
-    .table tbody td:nth-child(10),
+    .table tbody td:nth-child(9),
     /* Kolom Dokumen */
-    .table tbody td:nth-child(11) {
+    .table tbody td:nth-child(10) {
         /* Kolom Aksi */
         text-align: center;
-        /* Pastikan konten di kolom ini tetap di tengah */
     }
 
     .table thead {
@@ -148,20 +145,17 @@
     }
 
     .modal-backdrop {
+        /* Sesuaikan jika modal backdrop Anda menjadi transparan atau ada masalah */
         background-color: rgba(0, 0, 0, 0.2);
-        /* Ubah nilai alpha (0.0 - 1.0) sesuai keinginan */
-        background-color: transparent !important;
     }
 
-
-    /* Styling untuk modal yang baru (revisi 3 - atur jarak internal) */
+    /* Styling untuk modal (revisi 3 - atur jarak internal) */
     .modal-dialog-centered {
         display: flex;
         align-items: center;
         min-height: calc(100% - (0.5rem * 2));
         width: auto;
         max-width: 90%;
-        /* Ubah max-width menjadi persentase untuk layar kecil */
         margin: 0.5rem auto;
     }
 
@@ -169,7 +163,6 @@
         .modal-dialog-centered {
             min-height: calc(100% - (1.75rem * 2));
             max-width: 450px;
-            /* Kembali ke ukuran tetap untuk layar yang lebih besar */
             margin: 1.75rem auto;
         }
     }
@@ -178,13 +171,11 @@
         border-radius: 8px;
         box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
         padding: 20px 30px;
-        /* Kurangi padding atas dan bawah */
         text-align: center;
     }
 
     .modal-icon {
         width: 80px;
-        /* Sedikit kecilkan ikon lagi */
         height: 80px;
         border-radius: 50%;
         background-color: #ffe0b2;
@@ -193,40 +184,33 @@
         justify-content: center;
         align-items: center;
         font-size: 60px;
-        /* Kecilkan font ikon */
         margin: 0 auto 15px;
-        /* Kurangi margin bawah ikon */
     }
 
     .modal-title-custom {
         font-size: 25px;
-        /* Kecilkan ukuran judul */
         font-weight: bold;
         color: #333;
         margin-bottom: 5px;
-        /* Kurangi margin bawah judul */
     }
 
     .modal-message-custom {
         color: #555;
         margin-bottom: 0px;
-        /* Kurangi margin bawah pesan */
         font-size: 15px;
-        /* Kecilkan ukuran pesan */
     }
 
     .modal-buttons-custom {
         display: flex;
         justify-content: center;
         gap: 10px;
-        margin-top: 0px;
-        /* Kurangi margin atas tombol */
+        margin-top: 20px;
+        /* Kembali ke margin yang lebih standar */
         flex-direction: row-reverse;
     }
 
     .btn-primary-custom {
         background-color: #1758B9;
-        /* Warna biru tombol Terima */
         color: #fff;
         border: none;
         border-radius: 6px;
@@ -238,9 +222,7 @@
 
     .btn-secondary-custom {
         background-color: #EB2027;
-        /* Warna merah tombol Batal */
         color: #fff;
-        /* Ubah warna teks menjadi putih agar terlihat jelas di atas latar merah */
         border: none;
         border-radius: 6px;
         padding: 10px 20px;
@@ -251,18 +233,15 @@
 
     .btn-primary-custom:hover {
         background-color: #134a96;
-        /* Warna biru lebih gelap saat hover */
     }
 
     .btn-secondary-custom:hover {
         background-color: #b8181e;
-        /* Warna merah lebih gelap saat hover */
         color: #fff;
     }
 
     .dropdown {
         display: inline-block;
-        /* Pastikan dropdown tidak mengambil baris penuh */
     }
 </style>
 @endpush
@@ -279,10 +258,11 @@
         </div>
 
         <div class="section-body">
-            @include('layouts.alert')
+            @include('layouts.alert') {{-- Pastikan alert include berfungsi --}}
 
             <div class="row mb-4 align-items-center">
                 <div class="col-md-2 d-flex align-items-center">
+                    {{-- Ini adalah placeholder untuk Show X entries, belum fungsional --}}
                     <label class="mr-2 mb-0">Show</label>
                     <select class="form-control form-control-sm" style="width: 80px;">
                         <option>10</option>
@@ -294,24 +274,28 @@
                 </div>
 
                 <div class="col-md-8">
+                    {{-- Form Pencarian --}}
                     <form action="{{ route('administrasi.index') }}" method="GET">
                         <div class="position-relative">
                             <span class="position-absolute" style="top: 50%; left: 15px; transform: translateY(-50%); color: #aaa;">
                                 <i class="fas fa-search"></i>
                             </span>
-                            <input type="text" name="judul" value="{{ request('judul') }}"
+                            {{-- Ubah name dari 'judul' menjadi 'search' agar lebih generik --}}
+                            <input type="text" name="search" value="{{ request('search') }}"
                                 class="form-control pl-5 shadow-sm"
-                                placeholder="Search Judul..." style="height: 45px;">
+                                placeholder="Search Nama Pendaftar..." style="height: 45px;">
                         </div>
                     </form>
                 </div>
 
                 <div class="col-md-2">
+                    {{-- Form Filter Status --}}
                     <form action="{{ route('administrasi.index') }}" method="GET">
                         <select name="status" class="form-control form-control-sm shadow-sm" style="height: 45px;" onchange="this.form.submit()">
-                            <option value="">Filter</option>
+                            <option value="">Semua</option> {{-- Ganti Filter menjadi Filter Status --}}
                             <option value="proses" {{ request('status') == 'proses' ? 'selected' : '' }}>Proses</option>
-                            <option value="lulus" {{ request('status') == 'lulus' ? 'selected' : '' }}>Lulus</option>
+                            {{-- Sesuaikan value dan text dengan status di DB ('diterima', 'ditolak') --}}
+                            <option value="diterima" {{ request('status') == 'diterima' ? 'selected' : '' }}>Diterima</option>
                             <option value="ditolak" {{ request('status') == 'ditolak' ? 'selected' : '' }}>Ditolak</option>
                         </select>
                     </form>
@@ -335,35 +319,40 @@
                         </tr>
                     </thead>
                     <tbody>
-                        @foreach ($administrasi as $item)
+                        @forelse ($administrasi as $item)
                         <tr>
                             <td>{{ $loop->iteration }}</td>
                             <td>{{ $item->nama->name }}</td>
                             <td>{{ $item->nama->email }}</td>
                             <td>{{ $item->nama->phone }}</td>
-                            <td>{{ $item->nama->posisi->nama }}</td>
-                            <td>{{ $item->nama->instansi->name }}</td>
+                            <td>{{ $item->nama->posisi->nama }}</td> {{-- Asumsi $item->posisi adalah relasi --}}
+                            <td>{{ $item->nama->instansi->nama }}</td> {{-- Asumsi $item->instansi adalah relasi --}}
                             <td>
                                 {{ \Carbon\Carbon::parse($item->periode->tanggal_pegajuan)->translatedFormat('d M Y') }} -
                                 {{ \Carbon\Carbon::parse($item->periode->tanggal_selesai)->translatedFormat('d M Y') }}
                             </td>
                             <td>
-                                @if($item->status == 'proses')
+                                {{-- Menampilkan badge berdasarkan status_administrasi dari database --}}
+                                @if($item->status_administrasi == 'proses')
                                 <span class="badge-status badge-proses">Proses</span>
-                                @elseif($item->status == 'lulus')
-                                <span class="badge-status badge-lulus">Lulus</span>
-                                @elseif($item->status == 'ditolak')
-                                <span class="badge-status badge-danger">Ditolak</span>
+                                @elseif($item->status_administrasi == 'diterima')
+                                <span class="badge-status badge-diterima">Diterima</span>
+                                @elseif($item->status_administrasi == 'ditolak')
+                                <span class="badge-status badge-ditolak">Ditolak</span>
+                                @else
+                                <span class="badge-status badge-secondary">Tidak Diketahui</span>
                                 @endif
                             </td>
                             <td class="text-center">
                                 <div class="dropdown">
-                                    <button class="icon-button dropdown-toggle" type="button" id="aksiDropdown{{ $item->id }}" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    <button class="icon-button dropdown-toggle" type="button" id="dokumenDropdown{{ $item->id }}" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                         <i class="fas fa-file-alt"></i>
                                     </button>
-                                    <div class="dropdown-menu" aria-labelledby="aksiDropdown{{ $item->id }}">
-                                        <a class="dropdown-item" href="#"><i class="fas fa-file-alt"></i> Surat</a>
-                                        <a class="dropdown-item" href="#"><i class="fas fa-file-alt"></i> CV</a>
+                                    <div class="dropdown-menu" aria-labelledby="dokumenDropdown{{ $item->id }}">
+                                        {{-- Pastikan ini mengarah ke route yang benar untuk dokumen --}}
+                                        <a class="dropdown-item" href="#" target="_blank"><i class="fas fa-file-alt"></i> Lihat Dokumen</a>
+                                        {{-- Tambahkan link untuk CV jika ada --}}
+                                        {{-- <a class="dropdown-item" href="#" target="_blank"><i class="fas fa-file-alt"></i> CV</a> --}}
                                     </div>
                                 </div>
                             </td>
@@ -373,6 +362,7 @@
                                         <i class="fas fa-align-justify"></i>
                                     </button>
                                     <div class="dropdown-menu dropdown-menu-right" aria-labelledby="aksiDropdown{{ $item->id }}">
+                                        {{-- Tombol ini MEMBUKA MODAL dan meneruskan ID --}}
                                         <button type="button" class="dropdown-item terima-btn" data-toggle="modal" data-target="#terimaModal" data-id="{{ $item->id }}">
                                             <i class="fas fa-check text-success mr-2"></i> Terima
                                         </button>
@@ -383,7 +373,11 @@
                                 </div>
                             </td>
                         </tr>
-                        @endforeach
+                        @empty
+                        <tr>
+                            <td colspan="10" class="text-center">Tidak ada data administrasi yang ditemukan.</td>
+                        </tr>
+                        @endforelse
                     </tbody>
                 </table>
             </div>
@@ -395,6 +389,7 @@
     </section>
 </div>
 
+{{-- MODAL TERIMA --}}
 <div class="modal fade" id="terimaModal" tabindex="-1" role="dialog" aria-labelledby="terimaModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered" role="document">
         <div class="modal-content modal-content-custom">
@@ -404,20 +399,18 @@
             <h5 class="modal-title modal-title-custom" id="terimaModalLabel">Terima Pendaftar?</h5>
             <div class="modal-body modal-message-custom">
                 Apakah Anda yakin ingin menerima pendaftar ini?
-                <form id="terimaForm" method="POST" action="{{ route('administrasi.terima') }}">
-                    @csrf
-                    @method('PUT')
-                    <input type="hidden" name="administrasi_id" id="terima_administrasi_id">
-                </form>
+                {{-- Hapus form, karena akan di-handle AJAX via JS --}}
             </div>
             <div class="modal-footer modal-buttons-custom">
                 <button type="button" class="btn btn-secondary btn-secondary-custom" data-dismiss="modal">Batal</button>
-                <button type="submit" class="btn btn-primary btn-primary-custom" form="terimaForm">Terima</button>
+                {{-- Ganti type="submit" menjadi "button" dan tambahkan ID untuk handler JS --}}
+                <button type="button" class="btn btn-primary btn-primary-custom" id="confirmTerimaBtn">Terima</button>
             </div>
         </div>
     </div>
 </div>
 
+{{-- MODAL TOLAK --}}
 <div class="modal fade" id="tolakModal" tabindex="-1" role="dialog" aria-labelledby="tolakModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered" role="document">
         <div class="modal-content modal-content-custom">
@@ -427,15 +420,12 @@
             <h5 class="modal-title modal-title-custom" id="tolakModalLabel">Tolak Pendaftar?</h5>
             <div class="modal-body modal-message-custom">
                 Apakah Anda yakin ingin menolak pendaftar ini?
-                <form id="tolakForm" method="POST" action="{{ route('administrasi.tolak') }}">
-                    @csrf
-                    @method('PUT')
-                    <input type="hidden" name="administrasi_id" id="tolak_administrasi_id">
-                </form>
+                {{-- Hapus form, karena akan di-handle AJAX via JS --}}
             </div>
             <div class="modal-footer modal-buttons-custom">
                 <button type="button" class="btn btn-secondary btn-secondary-custom" data-dismiss="modal">Batal</button>
-                <button type="submit" class="btn btn-danger" form="tolakForm">Tolak</button>
+                {{-- Ganti type="submit" menjadi "button" dan tambahkan ID untuk handler JS --}}
+                <button type="button" class="btn btn-danger" id="confirmTolakBtn">Tolak</button>
             </div>
         </div>
     </div>
@@ -443,6 +433,7 @@
 @endsection
 
 @push('scripts')
+{{-- Pastikan semua library ini dimuat dengan benar --}}
 <script src="{{ asset('library/jquery/dist/jquery.min.js') }}"></script>
 <script src="{{ asset('library/popper.js/dist/umd/popper.js') }}"></script>
 <script src="{{ asset('library/tooltip.js/dist/umd/tooltip.js') }}"></script>
@@ -455,19 +446,24 @@
 
 <script>
     $(document).ready(function() {
+        var currentPengajuanId; // Variabel untuk menyimpan ID pendaftar yang akan diproses
+
+        // --- Handling Unggah Wawancara (jika masih diperlukan) ---
+        // Kode ini dibiarkan sesuai aslinya jika Anda menggunakannya di bagian lain.
+        // Pastikan modal #unggahWawancaraModal dan elemen terkaitnya ada.
         $('.unggah-wawancara-btn').on('click', function() {
             var id = $(this).data('id');
             $('#unggah_wawancara_id').val(id);
             $('#unggahWawancaraModal').modal('show');
-            // Simpan elemen yang aktif sebelum modal dibuka
-            $(document).data('activeElementBeforeModal', $(document.activeElement));
         });
 
         $('#unggahWawancaraModal').on('hidden.bs.modal', function(e) {
             $('#unggah_wawancara_id').val('');
-            $('#unggahWawancaraForm')[0].reset();
-            $('.modal-backdrop').remove();
-            // Coba paksa reflow pada body
+            if ($('#unggahWawancaraForm').length) { // Cek formnya ada
+                $('#unggahWawancaraForm')[0].reset();
+            }
+            // Hapus baris ini jika Bootstrap 4 sudah menangani backdrop dengan baik
+            // $('.modal-backdrop').remove();
             document.body.classList.remove('modal-open');
             document.body.style.paddingRight = '';
         });
@@ -476,42 +472,80 @@
             $(this).find('#tanggal_awal_seleksi').focus();
         });
 
+        // --- Handling Terima Pendaftar ---
+        // Ketika tombol 'Terima' di dropdown diklik (memicu modal)
         $('.terima-btn').on('click', function() {
-            var id = $(this).data('id');
-            $('#terimaForm').attr('action', '/administrasi/' + id + '/terima');
-            $('#terima_administrasi_id').val(id);
-            $('#terimaModal').modal('show');
-            $(document).data('activeElementBeforeModal', $(document.activeElement));
+            currentPengajuanId = $(this).data('id'); // Ambil ID dari data-id tombol dropdown
+            $('#terimaModal').modal('show'); // Tampilkan modal
         });
 
-        $('#terimaModal').on('hidden.bs.modal', function(e) {
-            $('#terimaForm').attr('action', '');
-            $('#terima_administrasi_id').val('');
-            $('.modal-backdrop').remove();
-            $(document).data('activeElementBeforeModal').focus();
+        // Ketika tombol 'Terima' di DALAM MODAL diklik
+        $('#confirmTerimaBtn').on('click', function() {
+            if (currentPengajuanId) {
+                updateStatus(currentPengajuanId, 'terima'); // Panggil fungsi updateStatus
+                // Modal akan otomatis tertutup jika respons sukses atau ada kesalahan
+                // dan location.reload() akan memuat ulang halaman.
+            } else {
+                alert('ID pendaftar tidak ditemukan.');
+            }
         });
 
-        $('#terimaModal').on('shown.bs.modal', function() {
-            $(this).find('.btn-primary-custom').focus();
-        });
-
+        // --- Handling Tolak Pendaftar ---
+        // Ketika tombol 'Tolak' di dropdown diklik (memicu modal)
         $('.tolak-btn').on('click', function() {
-            var id = $(this).data('id');
-            $('#tolakForm').attr('action', '/administrasi/' + id + '/tolak');
-            $('#tolak_administrasi_id').val(id);
-            $('#tolakModal').modal('show');
-            $(document).data('activeElementBeforeModal', $(document.activeElement));
+            currentPengajuanId = $(this).data('id'); // Ambil ID dari data-id tombol dropdown
+            $('#tolakModal').modal('show'); // Tampilkan modal
         });
 
-        $('#tolakModal').on('hidden.bs.modal', function(e) {
-            $('#tolakForm').attr('action', '');
-            $('#tolak_administrasi_id').val('');
-            $('.modal-backdrop').remove();
-            $(document).data('activeElementBeforeModal').focus();
+        // Ketika tombol 'Tolak' di DALAM MODAL diklik
+        $('#confirmTolakBtn').on('click', function() {
+            if (currentPengajuanId) {
+                updateStatus(currentPengajuanId, 'tolak'); // Panggil fungsi updateStatus
+                // Modal akan otomatis tertutup jika respons sukses atau ada kesalahan
+                // dan location.reload() akan memuat ulang halaman.
+            } else {
+                alert('ID pendaftar tidak ditemukan.');
+            }
         });
 
-        $('#tolakModal').on('shown.bs.modal', function() {
-            $(this).find('.btn-danger').focus();
+        // --- Fungsi AJAX untuk Update Status ---
+        function updateStatus(itemId, actionType) {
+            var url = '';
+            var statusToSet = '';
+
+            if (actionType === 'terima') {
+                url = `{{ route('administrasi.terima') }}`; // Gunakan backticks
+                statusToSet = 'diterima';
+            } else if (actionType === 'tolak') {
+                url = `{{ route('administrasi.tolak') }}`; // Gunakan backticks
+                statusToSet = 'ditolak';
+            } else {
+                alert('Tipe aksi tidak valid.');
+                return;
+            }
+
+            $.ajax({
+                url: url,
+                type: 'POST', // Tetap POST karena browser hanya bisa POST/GET natively
+                data: {
+                    _token: '{{ csrf_token() }}',
+                    _method: 'POST', // <--- TAMBAHKAN INI
+                    id: itemId
+                },
+                success: function(response) {
+                    // ...
+                },
+                error: function(xhr, status, error) {
+                    alert('Terjadi kesalahan saat menghubungi server: ' + xhr.responseText);
+                    console.error(xhr.responseText);
+                }
+            });
+        }
+
+        // --- Reset currentPengajuanId saat modal disembunyikan (opsional tapi disarankan) ---
+        $('#terimaModal, #tolakModal').on('hidden.bs.modal', function(e) {
+            currentPengajuanId = null; // Reset ID agar tidak terpakai lagi
+            // Jika Anda punya logic fokus elemen sebelumnya, bisa tambahkan di sini
         });
     });
 </script>

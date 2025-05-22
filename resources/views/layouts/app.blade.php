@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, shrink-to-fit=no" name="viewport">
-    <title>@yield('title') &mdash; Playstation</title>
+    <title>@yield('title') &mdash; Smart Internship</title>
     <link rel="icon" href="{{ asset('img/icon.png') }}">
 
     <!-- General CSS Files -->

@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Administrasi;
+use App\Models\Pengajuan;
 use Illuminate\Http\Request;
 
 class WawancaraController extends Controller
@@ -11,18 +11,18 @@ class WawancaraController extends Controller
     public function index()
     {
         // Search by judul, pagination 10
-        $administrasi = Administrasi::where('status_administrasi', 'like', '%' . request('judul') . '%')
+        $wawancara = Pengajuan::where('status_wawancara', 'like', '%' . request('judul') . '%')
             ->orderBy('id', 'desc')
             ->paginate(10);
 
-        return view('pages.seleksi.wawancara.index', compact('administrasi'));
+        return view('pages.seleksi.wawancara.index', compact('wawancara'));
     }
 
     // Create
     public function create()
     {
-        $administrasi = Administrasi::all();
-        return view('pages.kemampuan.create_soal', compact('administrasi'));
+        $wawancara = Pengajuan::all();
+        return view('pages.kemampuan.create_soal', compact('wawancara'));
     }
 
     // Store
@@ -39,7 +39,7 @@ class WawancaraController extends Controller
             'status' => 'required|in:proses,lulus',
         ]);
 
-        Administrasi::create([
+        Pengajuan::create([
             'nama' => $request->nama,
             'email' => $request->email,
             'no_telp' => $request->no_telp,
@@ -50,18 +50,18 @@ class WawancaraController extends Controller
             'status' => $request->status,
         ]);
 
-        return redirect()->route('administrasi.index')->with('success', 'Data administrasi berhasil ditambahkan.');
+        return redirect()->route('wawancara.index')->with('success', 'Data wawancara berhasil ditambahkan.');
     }
 
     // Edit
-    public function edit(Administrasi $administrasi)
+    public function edit(Pengajuan $wawancara)
     {
-        $administrasi = Administrasi::all();
-        return view('pages.administrasi.edit', compact('administrasi', 'administrasi'));
+        $wawancara = Pengajuan::all();
+        return view('pages.wawancara.edit', compact('wawancara', 'wawancara'));
     }
 
     // Update
-    public function update(Request $request, Administrasi $administrasi)
+    public function update(Request $request, Pengajuan $wawancara)
     {
         $request->validate([
             'nama' => 'required',
@@ -74,7 +74,7 @@ class WawancaraController extends Controller
             'status' => 'required|in:proses,lulus',
         ]);
 
-        $administrasi->update([
+        $wawancara->update([
             'nama' => $request->nama,
             'email' => $request->email,
             'no_telp' => $request->no_telp,
@@ -85,37 +85,37 @@ class WawancaraController extends Controller
             'status' => $request->status,
         ]);
 
-        return redirect()->route('administrasi.index')->with('success', 'Data administrasi berhasil diperbarui.');
+        return redirect()->route('wawancara.index')->with('success', 'Data wawancara berhasil diperbarui.');
     }
 
     // Destroy
-    public function destroy(Administrasi $administrasi)
+    public function destroy(Pengajuan $wawancara)
     {
-        $administrasi->delete();
-        return redirect()->route('administrasi.index')->with('success', 'Data administrasi berhasil dihapus.');
+        $wawancara->delete();
+        return redirect()->route('wawancara.index')->with('success', 'Data wawancara berhasil dihapus.');
     }
 
     // Dokumen (opsional)
-    public function dokumen(Administrasi $administrasi)
+    public function dokumen(Pengajuan $wawancara)
     {
-        return view('pages.administrasi.dokumen', compact('administrasi'));
+        return view('pages.wawancara.dokumen', compact('wawancara'));
     }
 
     public function terima(Request $request)
     {
-        $administrasi = Administrasi::findOrFail($request->administrasi_id);
-        $administrasi->status = 'lulus'; // Atau status yang sesuai
-        $administrasi->save();
+        $wawancara = Pengajuan::findOrFail($request->wawancara_id);
+        $wawancara->status = 'lulus'; // Atau status yang sesuai
+        $wawancara->save();
 
-        return redirect()->route('administrasi.index')->with('success', 'Pendaftar berhasil diterima.');
+        return redirect()->route('wawancara.index')->with('success', 'Pendaftar berhasil diterima.');
     }
 
     public function tolak(Request $request)
     {
-        $administrasi = Administrasi::findOrFail($request->administrasi_id);
-        $administrasi->status = 'ditolak'; // Atau status yang sesuai
-        $administrasi->save();
+        $wawancara = Pengajuan::findOrFail($request->wawancara_id);
+        $wawancara->status = 'ditolak'; // Atau status yang sesuai
+        $wawancara->save();
 
-        return redirect()->route('administrasi.index')->with('success', 'Pendaftar berhasil ditolak.');
+        return redirect()->route('wawancara.index')->with('success', 'Pendaftar berhasil ditolak.');
     }
 }

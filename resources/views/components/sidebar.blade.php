@@ -183,8 +183,8 @@
                     </a>
                     <ul class="dropdown-menu">
                         <li><a class="text-white" href="{{ route('templatesertifikat.index') }}">Sertifikat</a></li>
-                        <li><a class="text-white" href="#">Penilaian</a></li>
-                        <li><a class=" text-white" href="#">Kriteria Penilaian</a></li>
+                        <li><a class="text-white" href="{{ route('sertifikatpenilaian.index') }}">Penilaian</a></li>
+                        <li><a class="text-white" href="{{ route('kriteriapenilaian.index') }}">Kriteria Penilaian</a></li>
                     </ul>
                 </li>
 
@@ -192,6 +192,12 @@
                 <li class="nav-item">
                     <a href="{{ route('kelolamentor.index') }}" class="nav-link" style="color: white !important;">
                         <i class="fas fa-user" style="color: white !important;"></i> <span>Kelola Mentor</span>
+                    </a>
+                </li>
+                <!-- <li class="menu-header">Kelola</li> -->
+                <li class="nav-item">
+                    <a href="{{ route('penilaian.index') }}" class="nav-link" style="color: white !important;">
+                        <i class="fas fa-user" style="color: white !important;"></i> <span>Penilaian</span>
                     </a>
                 </li>
 
@@ -207,9 +213,9 @@
                         <i class="fas fa-lock" style="color: white !important;"></i> <span>Laporan</span>
                     </a>
                     <ul class="dropdown-menu">
-                        <li><a class="text-white" href="#">Peserta Magang Aktif</a></li>
-                        <li><a class="text-white" href="#">Pendaftar Magang</a></li>
-                        <li><a class="text-white" href="#">Alumni Magang</a></li>
+                        <li><a class="text-white" href="{{ route('pesertamagangaktif.index') }}">Peserta Magang Aktif</a></li>
+                        <li><a class="text-white" href="{{ route('pendaftarmagang.index') }}">Pendaftar Magang</a></li>
+                        <li><a class="text-white" href="{{ route('alumnimagang.index') }}">Alumni Magang</a></li>
                     </ul>
                 </li>
 

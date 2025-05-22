@@ -2,11 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\ProfileUser; // Menggunakan model Instansi
+use App\Models\kegiatanku; // Menggunakan model Instansi
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Session;
 
-class ProfileUserController extends Controller
+class BeriSertifikatController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,7 +15,7 @@ class ProfileUserController extends Controller
      */
     public function index()
     {
-        $instansi = ProfileUser::all();
-        return view('pages.user.have_acc.profile.index', compact('instansi')); // Sesuaikan nama view jika perlu
+        $instansi = kegiatanku::all();
+        return view('pages.mentor.berisertifikat.index', compact('instansi')); // Sesuaikan nama view jika perlu
     }
 }

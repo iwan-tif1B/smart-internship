@@ -1,14 +1,14 @@
 @extends('components.user.header1')
 
-@section('title', 'Kegiatanku')
+@section('title', 'Profile')
 
 @section('content')
 <section class="notifikasi py-5">
     <!-- Profil -->
     <div class="container mt-5 poppins">
         <div class="d-flex justify-content-between align-items-center mb-3">
-            <h1>Profil</h1>
-            <a href="#" class="text-decoration-none"><i class="bi bi-pencil-square me-1"></i> Edit Profil</a>
+            <h1>Profile</h1>
+            <a href="#" class="text-decoration-none"><i class="bi bi-pencil-square me-1"></i> Edit Profile</a>
         </div>
 
         <!-- Data Pribadi -->
